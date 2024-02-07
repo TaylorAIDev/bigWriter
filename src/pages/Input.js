@@ -26,7 +26,7 @@ function InputPage({ sections, loading, onSubmit }) {
       <label className="text-xl mx-1">in a/an </label>
       <input type="text" className='mx-1 rounded-md bg-black p-2 outline-none' value={inputFormat} onChange={(event) => setinputFormat(event.target.value)} />
       <label className="text-xl mx-1">format. </label>
-      {sections[0].content=='' && <button type="submit"className='mx-5 bg-black text-white p-2 rounded-md disabled:opacity-50' disabled={isButtonDisabled}>Generate!</button>}
+      {sections[0].content==='' && <button type="submit"className='mx-5 bg-black text-white p-2 rounded-md disabled:opacity-50' disabled={isButtonDisabled}>Generate!</button>}
     </form>
   );
 }

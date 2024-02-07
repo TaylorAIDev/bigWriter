@@ -43,7 +43,7 @@ function App() {
       },
       body: JSON.stringify({data: sendingMessages}),
     });
-
+    console.log('response', response)
     const reader = response.body.getReader();
     const decoder = new TextDecoder();
 
@@ -53,15 +53,16 @@ function App() {
       if(done) {
         break;
       }
-
+      console.log('decodedChunk', decodedChunk)
       receivedMessage.content += decodedChunk;
 
       //set state with streaming content
       const temp = [...sections];
       temp[temp.length-1].content += decodedChunk;
+      console.log('temp', temp)
       setSections(temp);
     }
-
+    console.log('receivedMessage', receivedMessage)
     //push received message into messages state
     setMessages(prev => [...prev, receivedMessage])
 
